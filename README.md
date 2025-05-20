@@ -1,4 +1,4 @@
- # Rapport Comparatif : Analyse Python vs Seurat
+# Rapport Comparatif : Analyse Python vs Seurat
 
 ## 1. Méthodologie
 
