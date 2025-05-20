@@ -1,0 +1,23 @@
+name: sc-rnaseq
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.9
+  - scanpy
+  - anndata
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - pandas
+  - numpy
+  - scipy
+  - leidenalg
+  - python-igraph
+  - umap-learn
+  - jupyter
+  - pip
+  - pip:
+    - scrublet
+    - harmonypy 
