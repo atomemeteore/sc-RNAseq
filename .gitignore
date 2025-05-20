@@ -33,7 +33,7 @@ wheels/
 # Data files
 *.rds
 *.h5ad
-*.pdf
+# *.pdf  # Commenté pour autoriser les PDF dans les dossiers d'analyse
 *.csv
 *.tsv
 *.txt
