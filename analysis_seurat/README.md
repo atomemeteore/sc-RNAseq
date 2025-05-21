@@ -1,38 +1,38 @@
-# R Analysis Pipeline (Seurat)
+# Pipeline d'Analyse R (Seurat)
 
-This directory contains the R-based analysis pipeline using Seurat for single-cell RNA-seq data analysis.
+Ce répertoire contient le pipeline d'analyse basé sur R utilisant Seurat pour l'analyse de données RNA-seq single-cell.
 
-## Pipeline Steps
+## Étapes du Pipeline
 
-1. **Package Installation** (`install_packages.R`)
-   - Install and load required R packages
-   - Set up the R environment for analysis
+1. **Installation des Packages** (`install_packages.R`)
+   - Installation et chargement des packages R requis
+   - Configuration de l'environnement R pour l'analyse
 
-2. **Seurat Analysis** (`seurat_analysis.R`)
-   - Load and preprocess the data
-   - Quality control and filtering
-   - Normalization and feature selection
-   - Dimensionality reduction (PCA)
-   - Clustering analysis
-   - Cell type annotation
-   - Visualization of results
+2. **Analyse Seurat** (`seurat_analysis.R`)
+   - Chargement et prétraitement des données
+   - Contrôle qualité et filtrage
+   - Normalisation et sélection des caractéristiques
+   - Réduction de dimensionnalité (ACP)
+   - Analyse de clustering
+   - Annotation des types cellulaires
+   - Visualisation des résultats
 
-## Output Files
+## Fichiers de Sortie
 
-### PDF Visualizations
-- `qc_metrics.pdf`: Quality control metrics plots
-- `variable_features.pdf`: Top variable features visualization
-- `pca_analysis.pdf`: PCA analysis results
-- `cluster_visualization.pdf`: Clustering results and cell type annotations
+### Visualisations PDF
+- `qc_metrics.pdf` : Graphiques des métriques de contrôle qualité
+- `variable_features.pdf` : Visualisation des caractéristiques variables
+- `pca_analysis.pdf` : Résultats de l'analyse en composantes principales
+- `cluster_visualization.pdf` : Résultats du clustering et annotations des types cellulaires
 
-### Data Files
-- `cluster_markers.csv`: Marker genes for each cluster
-- `cluster_annotations.csv`: Cell type annotations for each cluster
+### Fichiers de Données
+- `cluster_markers.csv` : Gènes marqueurs pour chaque cluster
+- `cluster_annotations.csv` : Annotations des types cellulaires pour chaque cluster
 
-## Requirements
+## Prérequis
 
 - R 4.0+
-- Dependencies (installed via `install_packages.R`):
+- Dépendances (installées via `install_packages.R`) :
   - Seurat
   - dplyr
   - ggplot2
@@ -40,44 +40,44 @@ This directory contains the R-based analysis pipeline using Seurat for single-ce
   - patchwork
   - SeuratObject
 
-## Usage
+## Utilisation
 
-1. Install required packages:
+1. Installer les packages requis :
 ```bash
 Rscript install_packages.R
 ```
 
-2. Run the Seurat analysis:
+2. Exécuter l'analyse Seurat :
 ```bash
 Rscript seurat_analysis.R
 ```
 
-## Analysis Steps
+## Étapes d'Analyse
 
-1. **Quality Control**
-   - Filter cells based on QC metrics
-   - Remove low-quality cells and genes
-   - Generate QC visualizations
+1. **Contrôle Qualité**
+   - Filtrage des cellules basé sur les métriques de QC
+   - Suppression des cellules et gènes de faible qualité
+   - Génération des visualisations de QC
 
-2. **Data Processing**
-   - Normalize the data
-   - Identify variable features
-   - Scale the data
-   - Run PCA
+2. **Traitement des Données**
+   - Normalisation des données
+   - Identification des caractéristiques variables
+   - Mise à l'échelle des données
+   - Exécution de l'ACP
 
 3. **Clustering**
-   - Find neighbors
-   - Identify clusters
-   - Generate UMAP visualization
+   - Recherche des voisins
+   - Identification des clusters
+   - Génération de la visualisation UMAP
 
-4. **Cell Type Annotation**
-   - Identify marker genes
-   - Annotate cell types
-   - Generate cluster visualizations
+4. **Annotation des Types Cellulaires**
+   - Identification des gènes marqueurs
+   - Annotation des types cellulaires
+   - Génération des visualisations de clusters
 
 ## Notes
 
-- The pipeline is designed to work with the PBMC3k dataset
-- Results are compatible with the Python/Scanpy pipeline
-- All visualizations are saved as PDF files
-- Cluster annotations and markers are saved as CSV files 
+- Le pipeline est conçu pour fonctionner avec le jeu de données PBMC3k
+- Les résultats sont compatibles avec le pipeline Python/Scanpy
+- Toutes les visualisations sont sauvegardées en fichiers PDF
+- Les annotations de clusters et les marqueurs sont sauvegardés en fichiers CSV 

@@ -1,24 +1,24 @@
-# Python Analysis Pipeline (Scanpy)
+# Pipeline d'Analyse Python (Scanpy)
 
-This directory contains the Python-based analysis pipeline using Scanpy for single-cell RNA-seq data analysis.
+Ce répertoire contient le pipeline d'analyse basé sur Python utilisant Scanpy pour l'analyse de données RNA-seq single-cell.
 
-## Pipeline Steps
+## Étapes du Pipeline
 
-1. **Data Exploration** (`data_exploration.ipynb`)
-   - Load and explore the PBMC3k dataset
-   - Basic quality control metrics
-   - Initial data visualization
-   - Data preprocessing steps
+1. **Exploration des Données** (`data_exploration.ipynb`)
+   - Chargement et exploration du jeu de données PBMC3k
+   - Métriques de contrôle qualité de base
+   - Visualisation initiale des données
+   - Étapes de prétraitement des données
 
-2. **Generate Seurat Object** (`generate_seurat_object.py`)
-   - Convert Scanpy AnnData object to Seurat-compatible format
-   - Save the object for R analysis
-   - Ensure compatibility between Python and R pipelines
+2. **Génération de l'Objet Seurat** (`generate_seurat_object.py`)
+   - Conversion de l'objet AnnData de Scanpy au format compatible Seurat
+   - Sauvegarde de l'objet pour l'analyse R
+   - Assurer la compatibilité entre les pipelines Python et R
 
-## Requirements
+## Prérequis
 
 - Python 3.8+
-- Dependencies listed in `requirements.txt`:
+- Dépendances listées dans `requirements.txt` :
   - scanpy
   - anndata
   - numpy
@@ -28,32 +28,32 @@ This directory contains the Python-based analysis pipeline using Scanpy for sing
   - seaborn
   - scikit-learn
 
-## Usage
+## Utilisation
 
-1. Create and activate the conda environment:
+1. Créer et activer l'environnement conda :
 ```bash
 conda env create -f environment.yml
 conda activate sc-rnaseq
 ```
 
-2. Run the Jupyter notebook for data exploration:
+2. Exécuter le notebook Jupyter pour l'exploration des données :
 ```bash
 jupyter notebook data_exploration.ipynb
 ```
 
-3. Generate Seurat object:
+3. Générer l'objet Seurat :
 ```bash
 python generate_seurat_object.py
 ```
 
-## Output Files
+## Fichiers de Sortie
 
-- `data_exploration.ipynb`: Interactive notebook with analysis results
-- Generated Seurat object for R analysis
-- Various plots and visualizations in the notebook
+- `data_exploration.ipynb` : Notebook interactif avec les résultats d'analyse
+- Objet Seurat généré pour l'analyse R
+- Divers graphiques et visualisations dans le notebook
 
 ## Notes
 
-- The pipeline is designed to work with the PBMC3k dataset
-- Results are compatible with the R/Seurat pipeline
-- All visualizations are generated within the Jupyter notebook 
+- Le pipeline est conçu pour fonctionner avec le jeu de données PBMC3k
+- Les résultats sont compatibles avec le pipeline R/Seurat
+- Toutes les visualisations sont générées dans le notebook Jupyter 
