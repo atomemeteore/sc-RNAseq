@@ -7,7 +7,7 @@ library(ggplot2)
 library(SeuratObject)
 library(SingleCellExperiment)
 library(rlang)
-library(grid)
+
 
 # Fonction principale
 main <- function(input_file, output_file) {
@@ -85,12 +85,16 @@ main <- function(input_file, output_file) {
   
   # Clustering
   cat("Clustering...\n")
-  seurat_obj <- FindNeighbors(seurat_obj, dims = 1:10)
+  seurat_obj <- FindNeighbors(seurat_obj, dims = 1:40)
   seurat_obj <- FindClusters(seurat_obj, resolution = 0.5)
   
   # UMAP
   cat("Calcul de l'UMAP...\n")
-  seurat_obj <- RunUMAP(seurat_obj, dims = 1:10)
+  seurat_obj <- RunUMAP(seurat_obj, dims = 1:40)
+  
+  # t-SNE
+  cat("Calcul du t-SNE...\n")
+  seurat_obj <- RunTSNE(seurat_obj, dims = 1:40)
   
   # Identification des marqueurs de clusters
   cat("Identification des marqueurs de clusters...\n")
@@ -140,6 +144,8 @@ main <- function(input_file, output_file) {
   pdf("cluster_visualization.pdf", width = 12, height = 8)
   print(DimPlot(seurat_obj, reduction = "umap", label = TRUE, repel = TRUE) + 
         ggtitle("UMAP des clusters annotés"))
+  print(DimPlot(seurat_obj, reduction = "tsne", label = TRUE, repel = TRUE) + 
+        ggtitle("t-SNE des clusters annotés"))
   
   # Visualisation des marqueurs clés
   key_markers <- c("CD3D", "CD4", "CD8A", "NKG7", "MS4A1", "CD14", "FCGR3A", "FCER1A")
