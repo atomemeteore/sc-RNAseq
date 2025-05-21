@@ -39,6 +39,7 @@ wheels/
 *.txt
 !requirements.txt
 !environment.yml
+!analysis_seurat/variance_40PC.txt
 
 # OS
 .DS_Store
