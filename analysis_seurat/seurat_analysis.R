@@ -7,6 +7,7 @@ library(ggplot2)
 library(SeuratObject)
 library(SingleCellExperiment)
 library(rlang)
+library(grid)
 
 # Fonction principale
 main <- function(input_file, output_file) {
@@ -58,12 +59,23 @@ main <- function(input_file, output_file) {
   # Analyse PCA
   cat("Analyse PCA...\n")
   seurat_obj <- RunPCA(seurat_obj, features = VariableFeatures(object = seurat_obj))
+
+  # Calcul de la variance expliquée par les 40 premières PC
+  stdev <- seurat_obj[["pca"]]@stdev
+  var_explained <- stdev^2 / sum(stdev^2)
+  var_40pc <- sum(var_explained[1:40])
+  # Sauvegarde dans un fichier texte
+  write(sprintf("Variance expliquée par les 40 premières PC : %.2f%%", var_40pc * 100), file = "variance_40PC.txt")
+  cat(sprintf("Variance expliquée par les 40 premières PC : %.2f%%\n", var_40pc * 100))
   
   # Visualisation PCA
   pdf("pca_analysis.pdf", width = 12, height = 8)
   print(VizDimLoadings(seurat_obj, dims = 1:2, reduction = "pca"))
   print(DimPlot(seurat_obj, reduction = "pca"))
   print(DimHeatmap(seurat_obj, dims = 1:15, cells = 500, balanced = TRUE))
+  # Ajout d'un texte dans le PDF
+  grid::grid.text(sprintf("Variance expliquée par les 40 premières PC : %.2f%%", var_40pc * 100), 
+                  x = 0.5, y = 0.05, gp = grid::gpar(fontsize = 14))
   dev.off()
   
   # Détermination de la dimensionnalité
